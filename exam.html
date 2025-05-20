@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam - Light of Education</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script defer src="assets/exam.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Light of Education" />
+                <span>Light of Education</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pdf.html">PDF Zone</a></li>
+                <li><a href="exam.html">Exam</a></li>
+                <li><a href="playlist.html">Playlists</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="exam-section">
+        <h2>Start Your Exam</h2>
+        <select id="subjectSelect">
+            <option value="">-- Select Subject --</option>
+            <option value="physics">Physics</option>
+            <option value="chemistry">Chemistry</option>
+        </select>
+        <button onclick="startExam()">Start</button>
+
+        <div id="examBox" class="hidden">
+            <div id="questionContainer"></div>
+            <button onclick="submitExam()" class="btn-primary">Submit</button>
+        </div>
+        <div id="resultBox" class="hidden">
+            <h3>Result</h3>
+            <p id="scoreText"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Light of Education. All rights reserved.</p>
+    </footer>
+</body>
+</html>

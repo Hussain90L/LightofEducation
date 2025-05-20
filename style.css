@@ -1,0 +1,31 @@
+.leaderboard-section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+}
+.leaderboard-section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+.leaderboard-table th, .leaderboard-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: center;
+}
+.leaderboard-table th {
+    background-color: #f4f4f4;
+}
+.leaderboard-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.leaderboard-table tr:hover {
+    background-color: #f1f1f1;
+}
