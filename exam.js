@@ -29,30 +29,43 @@ let currentQuestions = [];
 
 function startExam() {
     const subject = document.getElementById("subjectSelect").value;
+
+    // Check if subject is selected and exists in the questions object
     if (!subject || !questions[subject]) {
         alert("Please select a valid subject.");
         return;
     }
 
+    // Load questions for selected subject
     currentQuestions = questions[subject];
+
     const container = document.getElementById("questionContainer");
-    container.innerHTML = '';
+    container.innerHTML = ''; // Clear previous questions if any
+
+    // Create and append each question
     currentQuestions.forEach((q, index) => {
         const div = document.createElement("div");
         div.classList.add("question-block");
         div.innerHTML = `
             <p><strong>Q${index + 1}: ${q.question}</strong></p>
-            ${q.options.map(opt => `<label><input type="radio" name="q${index}" value="${opt}"> ${opt}</label><br>`).join('')}
+            ${q.options.map(opt => `
+                <label>
+                    <input type="radio" name="q${index}" value="${opt}"> ${opt}
+                </label><br>
+            `).join('')}
         `;
         container.appendChild(div);
     });
 
+    // Show exam box and hide result
     document.getElementById("examBox").classList.remove("hidden");
     document.getElementById("resultBox").classList.add("hidden");
 }
 
 function submitExam() {
     let score = 0;
+
+    // Calculate score based on selected answers
     currentQuestions.forEach((q, index) => {
         const selected = document.querySelector(`input[name="q${index}"]:checked`);
         if (selected && selected.value === q.answer) {
@@ -60,6 +73,7 @@ function submitExam() {
         }
     });
 
+    // Show result
     document.getElementById("scoreText").innerText = `You scored ${score} out of ${currentQuestions.length}`;
     document.getElementById("resultBox").classList.remove("hidden");
 }
